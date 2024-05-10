@@ -11,3 +11,19 @@ public:
         return sum;
     }
 };
+
+// better solution
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        int sum=0, len = mat.size();
+
+        for(int i=0;i<len;i++){
+            sum+=mat[i][len-1-i]+mat[i][i]; // sum of primary and secondary diagonal
+            
+        }
+        if(len%2!=0)
+        sum-=mat[len/2][len/2];
+        return sum;
+    }
+};
