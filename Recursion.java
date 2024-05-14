@@ -139,8 +139,37 @@ int friendsPairing(int n) {
     return friendsPairing(n - 1) + friendsPairing(n - 2) * (n - 1);
 }
 
+// 14. Binary String without consecutive 1's
+
+void binaryString(int n,int last, String s) {
+    if (n == 0) {
+        System.out.println(s);
+        return;
+    }
+    binaryString(n - 1, 0, s + "0");
+    if (last == 0) {
+        binaryString(n - 1, s + "1");
+    }
+}
 
 public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        
+    Recursion r = new Recursion();
+    System.out.println(r.factorial(5));
+    System.out.println(r.fibonacci(5));
+    r.towerOfHanoi(3, 'A', 'B', 'C');   
+    System.out.println(r.sumOfDigits(12345));
+    System.out.println(r.power(2, 5));
+    System.out.println(r.powerOptimized(2, 5));
+    System.out.println(r.gcd(12, 15));
+    System.out.println(r.reverse("hello"));
+    r.printNumbers(5);
+    r.printNumbersReverse(5);
+    int[] arr = {1, 2, 3, 4, 5};
+    System.out.println(r.isSorted(arr, arr.length));
+    System.out.println(r.tiling(4));
+    System.out.println(r.removeDuplicates("aaabbbccc"));
+    System.out.println(r.friendsPairing(3));
+    r.binaryString(3, 0, "");
     }
 }
