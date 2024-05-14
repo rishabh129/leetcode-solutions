@@ -14,7 +14,7 @@ void swap(int &a, int &b)
     b = temp;
 }
 
-// Bubble Sort
+// Bubble Sort - O(n^2)
 void bubbleSort(vector<int> &arr)
 {
     int n = arr.size();
@@ -30,7 +30,7 @@ void bubbleSort(vector<int> &arr)
     }
 }
 
-// Selection Sort
+// Selection Sort - O(n^2)
 void selectionSort(vector<int> &arr)
 {
     int n = arr.size();
@@ -48,7 +48,7 @@ void selectionSort(vector<int> &arr)
     }
 }
 
-// Insertion Sort
+// Insertion Sort - O(n^2)
 void insertionSort(vector<int> &arr)
 {
     int n = arr.size();
@@ -65,7 +65,7 @@ void insertionSort(vector<int> &arr)
     }
 }
 
-// Counting Sort
+// Counting Sort - O(n+k) where k is the range of the non-negative key values
 void countingSort(vector<int> &arr)
 {
     int n = arr.size();
@@ -104,6 +104,8 @@ void printArray(vector<int> &arr)
     }
     cout << endl;
 }
+
+// main function
 
 int main()
 {
