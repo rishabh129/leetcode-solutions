@@ -17,15 +17,12 @@ public class Solution {
         ListNode slow = head;
         ListNode fast = head;
 
-        while( fast.next!=null && fast.next.next!=null ){
+        while( fast!=null && fast.next!=null ){
             slow=slow.next;
             fast=fast.next.next;
 
-            if(slow.val == fast.val && slow.next == fast.next){
-                if(slow.next != null)
-                    return true;
-                else
-                    return false;
+            if(slow==fast){
+                return true;
             }
         }
         return false;
