@@ -1,5 +1,4 @@
 // using stack
-
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> open = new Stack<>();
