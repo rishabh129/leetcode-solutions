@@ -12,7 +12,6 @@ class Solution {
         int p=0;
 
         Stack<Integer> s = new Stack<>();
-
         for(int i=nums2.length-1;i>=0;i--){
             while(!s.isEmpty() && s.peek() <= nums2[i]){
                 s.pop();
