@@ -33,3 +33,34 @@ class Solution {
         return ans;
     }
 }
+
+// using hashmap & stack
+
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> next = new HashMap<>();
+
+        Stack<Integer> stack = new Stack<>();
+
+        int size = nums2.length-1;
+        for(int i=size;i>=0;i--){
+
+            while(!stack.isEmpty() && stack.peek() < nums2[i]){
+                stack.pop();
+            }
+            if(!stack.isEmpty()){
+                next.put(nums2[i],stack.peek());
+            }
+            else{
+                next.put(nums2[i],-1);
+            }
+            
+            stack.push(nums2[i]);
+        }
+
+        for(int i=0;i<nums1.length;i++){
+            nums1[i] = next.get(nums1[i]);
+        }
+        return nums1;
+    }
+}
