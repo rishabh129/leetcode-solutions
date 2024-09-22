@@ -13,6 +13,8 @@
  *     }
  * }
  */
+
+// Solution 1 - Recursive approach
 class Solution {
     List<Integer> traverse(TreeNode root, List<Integer> tree){
         if(root == null){
@@ -28,5 +30,32 @@ class Solution {
         List<Integer> tree = new ArrayList<>();
 
         return traverse(root, tree);
+    }
+}
+
+// Solution 2 - Iterative approach
+
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> tree = new ArrayList<>();
+        if(root==null){
+            return tree;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+
+        stack.push(root);
+
+        while(!stack.isEmpty()){
+            TreeNode curr=stack.pop();
+            tree.add(curr.val);
+            if(curr.right!=null){
+                stack.push(curr.right);
+            }
+            if(curr.left!=null){
+                stack.push(curr.left);
+            }
+        }
+        return tree;
     }
 }
