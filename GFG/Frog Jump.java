@@ -59,3 +59,23 @@ class Solution {
         return dp[height.length-1];
     }
 }
+
+//Space Optimization
+
+class Solution {
+    int minCost(int[] height) {
+        // code here
+        if(height.length==1)
+        return 0;
+          
+        int prev2=0;
+        int prev=Math.abs(height[1]-height[0]);
+        
+        for(int i=2;i<height.length;i++){
+            int curr = Math.min(prev+Math.abs(height[i]-height[i-1]), prev2+Math.abs(height[i]-height[i-2]));
+            prev2=prev;
+            prev=curr;
+        }
+        return prev;
+    }
+}
