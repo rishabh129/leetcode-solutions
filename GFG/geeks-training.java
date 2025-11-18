@@ -73,3 +73,44 @@ class Solution {
     }
 }
 
+//Tabulation
+
+// User function Template for Java
+
+class Solution {
+    public int maximumPoints(int arr[][]) {
+        int n=arr.length;
+        int[][] dp=new int[n][4];
+        
+        for(int i=0;i<n;i++){
+            Arrays.fill(dp[i], -1);
+        }
+        
+        
+        for(int i=0;i<=3;i++){
+            dp[0][i]=0;
+            for(int j=0;j<=2;j++){
+                if(i!=j)
+                dp[0][i]=Math.max(dp[0][i], arr[0][j]);
+            }
+        }
+        
+        for(int day=1;day<n;day++){
+            for(int last=0;last<=3;last++){
+                dp[day][last]=0;
+                for(int i=0;i<=2;i++){
+                    if(i!=last){
+                        int point=arr[day][i]+dp[day-1][i];
+                        dp[day][last]=Math.max(dp[day][last], point);
+                    }
+                }
+            }
+        }
+        
+        
+        
+        return dp[n-1][3];
+        
+    }
+}
+
